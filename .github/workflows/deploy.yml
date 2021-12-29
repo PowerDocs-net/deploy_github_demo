@@ -1,0 +1,17 @@
+name: Deployment
+
+on:
+  workflow_dispatch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Deploy Documentations
+        uses: PSDocsOnline/deploy@v1
+        with:
+          project_id: ${{ secrets.PROJECT_ID }}
+          api_key: ${{ secrets.API_KEY }}
